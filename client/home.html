@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dev Rooms</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      id="root"
+      class="min-h-screen flex items-center justify-center bg-slate-900"
+    >
+      <div class="bg-white w-150 p-6 rounded-xl shadow-lg">
+        <h1 class="text-2xl font-bold text-center text-slate-900 mb-6">
+          Dev Rooms
+        </h1>
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter username"
+          class="w-full mb-4 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <select
+          id="room"
+          class="w-full mb-5 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">Select a room</option>
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="devops">DevOps</option>
+          <option value="uiux">UI/UX</option>
+        </select>
+        <button
+          id="joinBtn"
+          class="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
+        >
+          Join Room
+        </button>
+      </div>
+    </div>
+    <script>
+      let username = "";
+      let roomSelect = "";
+      const inputElement = document.getElementById("username");
+      const roomElement = document.getElementById("room");
+      const joinButton = document.getElementById("joinBtn");
+      inputElement.addEventListener("input", (e) => {
+        username = e.target.value;
+      });
+      roomElement.addEventListener("change", (e) => {
+        roomSelect = e.target.value;
+      });
+
+
+     joinButton.addEventListener("click", function handleJoinBtnClick() {
+        window.location.href = `/client/chat.html?username=${username}&roomSelect=${roomSelect}`;
+        inputElement.value = "";
+        roomElement.value = "";
+      });
+    </script>
+  </body>
+</html>

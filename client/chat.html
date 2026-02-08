@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dev Rooms – Chat</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen bg-slate-900 text-slate-100">
+
+  <!-- Main Container -->
+  <div class="h-full flex">
+
+    <!-- Users List -->
+    <aside class="w-64 bg-slate-800 p-4 flex flex-col">
+      <h2 class="text-lg font-semibold mb-4 border-b border-slate-700 pb-2">
+        Users in Room
+      </h2>
+
+      <ul id="chatroomUsers" class="flex-1 space-y-2 overflow-y-auto">
+        <!-- <li class="bg-slate-700 px-3 py-2 rounded">Alice</li>
+        <li class="bg-slate-700 px-3 py-2 rounded">Bob</li>
+        <li class="bg-slate-700 px-3 py-2 rounded">Charlie</li> -->
+      </ul>
+
+      <button
+      id="lvBtn"
+        class="mt-4 bg-red-600 hover:bg-red-700 py-2 rounded font-semibold transition"
+      >
+        Leave Room
+      </button>
+    </aside>
+
+    <!-- Chat Section -->
+    <main class="flex-1 flex flex-col">
+
+      <!-- Header -->
+      <div class="bg-slate-800 px-6 py-4 border-b border-slate-700">
+        <h1 class="text-xl font-bold">Dev Room Chat</h1>
+      </div>
+
+      <!-- Messages Area -->
+      <div id="messageArea" class="flex-1 p-6 space-y-4 overflow-y-auto">
+        <!-- Message (other user)
+        <div class="flex items-start gap-3">
+          <div class="bg-slate-700 p-3 rounded-lg max-w-xs">
+            <p class="text-sm font-semibold">Alice</p>
+            <p class="text-sm">Hey everyone 👋</p>
+          </div>
+        </div> -->
+
+        <!-- Message (current user)
+        <div class="flex justify-end">
+          <div class="bg-blue-600 p-3 rounded-lg max-w-xs">
+            <p class="text-sm font-semibold text-right">You</p>
+            <p class="text-sm text-right">Hello Alice!</p>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- Message Input -->
+      <div class="bg-slate-800 p-4 border-t border-slate-700 flex gap-3">
+        <input
+        id="messageInput"
+          type="text"
+          placeholder="Type your message..."
+          class="flex-1 px-4 py-2 rounded-md bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          class="bg-blue-600 hover:bg-blue-700 px-5 rounded-md font-semibold transition"
+          id="sendBtn"
+        >
+          Send
+        </button>
+      </div>
+
+    </main>
+  </div>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script src="Script.js"></script>
+</body>
+</html>
