@@ -1,4 +1,4 @@
-# Real Time Chat Backend
+# Real Time Chat Sytem
 
 A real-time chat application built with **Node.js**, **Express.js**, and **Socket.io**, **MongoDB** featuring multi-room chat functionality with a modern web interface.
 
